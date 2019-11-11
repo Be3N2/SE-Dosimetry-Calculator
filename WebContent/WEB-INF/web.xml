@@ -3,14 +3,6 @@
   <display-name>Dosimetry Calculator</display-name>
   
   <servlet>
-  	<servlet-name>Create</servlet-name>
-  	<servlet-class>Core.CreateServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Create</servlet-name>
-  	<url-pattern>/create.html</url-pattern>
-  </servlet-mapping>
-  <servlet>
   	<servlet-name>Home</servlet-name>
   	<servlet-class>Core.HomeServlet</servlet-class>
   </servlet>

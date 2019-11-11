@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +16,17 @@
 		<div class="navBar">
 			<h3 class="header">Create a Patient</h3>
 			<ul class="navigation">
-				<li><a href="create.html">Create</a></li>
+				<%
+					if (session != null && session.getAttribute("name") != null) {
+						out.print("<li>| <a href='logout.jsp'>Log out</a></li>");
+						out.print("<li>| Welcome " + session.getAttribute("name") + "</li>");
+					} else {
+						response.sendRedirect("login.jsp");
+					}
+				%>
+				<li>Create</li>
 				<li>Update</li>
-				<li><a href="treatment.jsp">View</a></li>
+				<li>View</a></li>
 			</ul>
 		</div>
 	</header>

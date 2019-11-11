@@ -16,15 +16,15 @@
 				<%
 				//HttpSession session = request.getSession(false);
 				if (session != null && session.getAttribute("name") != null) {
+					out.print("<li>| <a href='logout.jsp'>Log out</a></li>");
 					out.print("<li>| Welcome " + session.getAttribute("name") + "</li>");
-				
 				} else {
-					response.sendRedirect("redirect.html");
+					response.sendRedirect("login.jsp");
 				}
 				%>
-				<li><a href="create.html">Create</a></li>
+				<li><a href="create.jsp">Create</a></li>
 				<li>Update</li>
-				<li><a href="treatment.jsp">View</a></li>
+				<li>View</li>
 			</ul>
 		</div>
 	</header>

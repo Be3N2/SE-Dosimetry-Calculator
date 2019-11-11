@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 			*/
 			HttpSession session = request.getSession();  
 	        session.setAttribute("name",username);  
-	        response.sendRedirect("home.html");
+	        response.sendRedirect("home.jsp");
 		} else {
 			PrintWriter writer = response.getWriter();
 			writer.println("Bad Username or Password");

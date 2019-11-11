@@ -51,9 +51,17 @@
 	<div class="navBar">
 		<h3 class="header">Treatment Plan</h3>
 		<ul class="navigation">
-			<li><a href="create.html">Create</a></li>
-			<li>Update</li>
-			<li>View</li>
+			<%
+					if (session != null && session.getAttribute("name") != null) {
+						out.print("<li>| <a href='logout.jsp'>Log out</a></li>");
+						out.print("<li>| Welcome " + session.getAttribute("name") + "</li>");
+					} else {
+						response.sendRedirect("login.jsp");
+					}
+				%>
+				<li><a href="create.jsp">Create</a></li>
+				<li>Update</li>
+				<li>View</li>
 		</ul>
 	</div>
 </header>
