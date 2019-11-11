@@ -34,6 +34,9 @@ public class PatientData {
 	// Recommended Surgeries from Surgery Class
 	private String RecomendedSurgery;
 	
+	// Chemotherapy Drug name and dosage amount
+	private String chemoDrug;
+	
 	//Constructor
 	public PatientData(String firstname, String lastname, String ID, double height, String gender, int age, double weight,
 			String tumorlocation, double organmass, int cancerstage, 
@@ -150,6 +153,11 @@ public class PatientData {
 		this.RecomendedSurgery = RecommendedSurgery;
 	}
 	
+	// Chemotherapy Drug Setter
+	public void setChemoDrug(String drug) {
+		this.chemoDrug = drug;
+	}
+	
 	
 	//Getter methods
 	public String GetFirstName() {
@@ -239,6 +247,11 @@ public class PatientData {
 	
 	public String GetRecommendedSurgery() {
 		return this.RecomendedSurgery;
+	}
+	
+	// getter method for chemotherapy drug
+	public String GetChemoDrug() {
+		return this.chemoDrug;
 	}
 	
 	
