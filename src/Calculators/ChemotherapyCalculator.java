@@ -16,24 +16,24 @@ public class ChemotherapyCalculator extends Calculator {
 		{
 			
 			case "lungs":
-				dosage = String.valueOf(bodySurfaceArea(100));
-				Patient.setChemoDrug(dosage + "mg of Paclitaxel");
+				dosage = String.valueOf(TwoDecimalRound(bodySurfaceArea(100)));
+				Patient.setChemoDrug(dosage + " mg of Paclitaxel");
 				
 			case "brain":
-				dosage = String.valueOf(bodySurfaceArea(200));
-				Patient.setChemoDrug(dosage + "mg of Carmustine");
+				dosage = String.valueOf(TwoDecimalRound(bodySurfaceArea(200)));
+				Patient.setChemoDrug(dosage + " mg of Carmustine");
 				
 			case "thyroid":
-				dosage = String.valueOf(bodySurfaceArea(90));
-				Patient.setChemoDrug(dosage + "mg of Doxorubicin");
+				dosage = String.valueOf(TwoDecimalRound(bodySurfaceArea(90)));
+				Patient.setChemoDrug(dosage + " mg of Doxorubicin");
 				
 			case "liver":
-				dosage = String.valueOf(bodySurfaceArea(120));
-				Patient.setChemoDrug(dosage + "mg of Cabozantinib-S-Malate");
+				dosage = String.valueOf(TwoDecimalRound(bodySurfaceArea(120)));
+				Patient.setChemoDrug(dosage + " mg of Cabozantinib-S-Malate");
 				
 			case "stomach":
-				dosage = String.valueOf(bodySurfaceArea(120));
-				Patient.setChemoDrug(dosage + "mg of Docetaxel");
+				dosage = String.valueOf(TwoDecimalRound(bodySurfaceArea(120)));
+				Patient.setChemoDrug(dosage + " mg of Docetaxel");
 				
 		}
 	}

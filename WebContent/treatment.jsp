@@ -45,6 +45,9 @@
 		RadCalculator.CalculateTreatment();
 		SurgeryCalculator SurgCalculator = new SurgeryCalculator(patient);
 		SurgCalculator.CalculateTreatment();
+		ChemotherapyCalculator ChemoCalculator = new ChemotherapyCalculator(patient);
+		ChemoCalculator.CalculateTreatment();
+		
 		patient.Print();
 %>
 <header>	
@@ -177,9 +180,9 @@
 	</div>
 	<div class="chemotherapy">
 		<h2>Chemotherapy</h2>
-		<ul id="drugs">
-			<li>Chlorambucil  0.4 </li>
-		</ul>
+		
+		<p><%out.print(patient.GetChemoDrug()); %></p>
+		
 	</div>
 	<div class="sideEffects">
 		<h2>Side Effects</h2>
