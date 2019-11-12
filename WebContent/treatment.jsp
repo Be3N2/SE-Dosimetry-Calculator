@@ -54,11 +54,13 @@
 	<div class="navBar">
 		<h3 class="header">Treatment Plan</h3>
 		<ul class="navigation">
-			<%
+				<%
+					//Display username if logged in
 					if (session != null && session.getAttribute("name") != null) {
 						out.print("<li>| <a href='logout.jsp'>Log out</a></li>");
 						out.print("<li>| Welcome " + session.getAttribute("name") + "</li>");
 					} else {
+						//If not logged in redirect to login page
 						response.sendRedirect("login.jsp");
 					}
 				%>
@@ -129,27 +131,23 @@
 			<div class="risk-level">
 				<h4>Low Risk Total Dose</h4>
 				<hr>
-				<h5>800 Gy</h5>
 				<h5><%out.print(patient.GetTotalDoseLowRisk()); %> Gy</h5>
 			</div>
 			<div class="risk-level">
 				<h4>Medium Risk Total Dose</h4>
 				<hr>
-				<h5>1500 Gv</h5>
-				<h5><%out.print(patient.GetTotalDoseMedRisk()); %> Gv</h5>
+				<h5><%out.print(patient.GetTotalDoseMedRisk()); %> Gy</h5>
 			</div>
 			<div class="risk-level">
 				<h4>High Risk Total Dose</h4>
 				<hr>
-				<h5>3000 Gv</h5>
-				<h5><%out.print(patient.GetTotalDoseHighRisk()); %> Gv</h5>
+				<h5><%out.print(patient.GetTotalDoseHighRisk()); %> Gy</h5>
 			</div>
 		</div>
 		<div class="bottom-row">
 			<div class="radiation-dose">
 				<h4>Recommended Total Dose</h4>
 				<hr>
-				<h5>Low: 800 Gy</h5>
 				<h5><%out.print(patient.GetRecommendedRiskLevel()); %></h5>
 			</div>
 			<div class="therapy-weeks">

@@ -14,11 +14,12 @@
 			
 			<ul class="navigation">
 				<%
-				//HttpSession session = request.getSession(false);
+				//if logged in display username and logout button
 				if (session != null && session.getAttribute("name") != null) {
 					out.print("<li>| <a href='logout.jsp'>Log out</a></li>");
 					out.print("<li>| Welcome " + session.getAttribute("name") + "</li>");
 				} else {
+					//redirect to login page otherwise
 					response.sendRedirect("login.jsp");
 				}
 				%>

@@ -254,9 +254,6 @@ public class PatientData {
 		return this.chemoDrug;
 	}
 	
-	
-	
-	
 	//prints all the member variables to the console for debugging
 	public void Print() {
 		System.out.println("First Name: " + this.GetFirstName());

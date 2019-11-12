@@ -17,10 +17,12 @@
 			<h3 class="header">Create a Patient</h3>
 			<ul class="navigation">
 				<%
+					//Display username if logged in
 					if (session != null && session.getAttribute("name") != null) {
 						out.print("<li>| <a href='logout.jsp'>Log out</a></li>");
 						out.print("<li>| Welcome " + session.getAttribute("name") + "</li>");
 					} else {
+						//If not logged in redirect to login page
 						response.sendRedirect("login.jsp");
 					}
 				%>
