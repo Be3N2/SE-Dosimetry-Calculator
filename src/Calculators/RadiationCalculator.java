@@ -144,7 +144,7 @@ public void CalculateTreatment() {
 		
 }
 
-private void CalculateTotalTherapyWeeks() {
+public void CalculateTotalTherapyWeeks() {
 	//delivered over 5-8wks
 	//5wks for cancer stage 4
 	//6wks cancer stage 3
@@ -165,7 +165,7 @@ private void CalculateTotalTherapyWeeks() {
 	}
 }
 
-private void ChooseRecommendedRiskLevel() {
+public void ChooseRecommendedRiskLevel() {
 	//recommend low risk level dose if cancer stage 1
 	//recommend med risk level dose if cancer stage 2,3
 	//recommend high risk level dose if cancer stage 4
