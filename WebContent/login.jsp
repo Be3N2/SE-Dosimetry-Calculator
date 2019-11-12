@@ -8,11 +8,16 @@
 <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-	
 	<form method="post" action="/Dosimetry_Calculator/Login" class="loginForm">
 		<h3>Dosimetry Calculator</h3>
 		<h4>Log in </h4>
-		<div class="field"><label>Username: </label>
+		<div class="field">
+		<%
+			String str[] = request.getHeader("referer").split("/");
+			if (str[4].compareTo("login.jsp") == 0) {
+				out.print("<h5 style='color: red; margin: 0px;'>Bad username or password</h5>");
+			}
+		%><label>Username: </label>
 		<input type="text" name="username" placeholder="Username"/> <br/></div>
 		<div class="field"><label>Password: </label>
 		<input type="password" name="password" placeholder="Password"/> <br/></div>

@@ -50,8 +50,11 @@
 	margin-top: 0;
 }
 
-.calculations > h4 {
+.calculations {
 	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.calculations > h4 {
 	margin-bottom: 0px;
 }
 .calculations > div {

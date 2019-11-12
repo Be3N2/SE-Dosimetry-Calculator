@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 			
-		if (username.equals("Hello") && password.equals("1234")) {
+		if (username.equals("Admin") && password.equals("1234")) {
 			/* Sessions are better than cookies as they hide sensitive information
 			Cookie userCookie = new Cookie(username, String.valueOf(ID));
 			response.addCookie(userCookie);
@@ -38,10 +38,10 @@ public class Login extends HttpServlet {
 			*/
 			HttpSession session = request.getSession();  
 	        session.setAttribute("name",username);  
-	        response.sendRedirect("home.jsp");
+	        response.sendRedirect("create.jsp");
 		} else {
-			PrintWriter writer = response.getWriter();
-			writer.println("Bad Username or Password");
+			response.setHeader("Failed", "Bad Username or Password");
+			response.sendRedirect("login.jsp");
 		}
 		
 		

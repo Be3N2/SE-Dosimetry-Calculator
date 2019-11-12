@@ -44,7 +44,8 @@ public class Results extends HttpServlet {
 		String gender = request.getParameter("Gender");
 		int age = Integer.parseInt(request.getParameter("age"));
 		double weight = Double.parseDouble(request.getParameter("weight"));
-
+		String comments = request.getParameter("comments");
+		
 		String tumorlocation = request.getParameter("tumorLocation");
 		double organmass = Double.parseDouble(request.getParameter("organMass"));
 		int cancerstage = Integer.parseInt(request.getParameter("cancerStage"));
@@ -57,7 +58,7 @@ public class Results extends HttpServlet {
 		double albumin = Double.parseDouble(request.getParameter("albumin"));
 
 		//Construct the PatientData object from the patient data
-		PatientData patient = new PatientData(firstName, lastName, ID, height, gender, age, weight, tumorlocation, organmass, cancerstage,
+		PatientData patient = new PatientData(firstName, lastName, ID, height, gender, age, weight, comments, tumorlocation, organmass, cancerstage,
 											  redblood, whiteblood, glucose, sodium, chloride, albumin);
 		
 		

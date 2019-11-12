@@ -10,7 +10,8 @@ public class PatientData {
 	private String Gender;
 	private int Age;
 	private double Weight;
-	
+	private String Comments;
+
 	//Tumor attributes
 	private String TumorLocation;		//represents what organ the tumor is on
 	private double OrganMass;			//mass of the organ in kilograms
@@ -38,7 +39,7 @@ public class PatientData {
 	private String chemoDrug;
 	
 	//Constructor
-	public PatientData(String firstname, String lastname, String ID, double height, String gender, int age, double weight,
+	public PatientData(String firstname, String lastname, String ID, double height, String gender, int age, double weight, String comments,
 			String tumorlocation, double organmass, int cancerstage, 
 			double whitebloodcellcount, double redbloodcellcount, double glucose, double sodium, double chloride, double albumin)
 	{
@@ -49,6 +50,7 @@ public class PatientData {
 		this.Gender = gender;
 		this.Age = age;
 		this.Weight = weight;
+		this.Comments = comments;
 		
 		this.TumorLocation = tumorlocation;
 		this.OrganMass = organmass;
@@ -60,6 +62,11 @@ public class PatientData {
 		this.Sodium = sodium;
 		this.Chloride = chloride;
 		this.Albumin = albumin;
+	}
+	
+	//for JUnit Testing
+	public PatientData() {
+		
 	}
 	
 	//Setter methods
@@ -89,6 +96,10 @@ public class PatientData {
 	
 	public void SetWeight(double weight) {
 		this.Weight = weight;
+	}
+	
+	public void SetComments(String comments) {
+		Comments = comments;
 	}
 	
 	public void SetTumorLocation(String tumorlocation) {
@@ -159,6 +170,7 @@ public class PatientData {
 	}
 	
 	
+	
 	//Getter methods
 	public String GetFirstName() {
 		return this.FirstName;
@@ -186,6 +198,10 @@ public class PatientData {
 	
 	public double GetWeight() {
 		return this.Weight;
+	}
+	
+	public String GetComments() {
+		return Comments;
 	}
 	
 	public String GetTumorLocation() {

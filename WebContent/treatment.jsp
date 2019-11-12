@@ -23,7 +23,8 @@
 		String gender = request.getParameter("Gender");
 		int age = Integer.parseInt(request.getParameter("age"));
 		double weight = Double.parseDouble(request.getParameter("weight"));
-
+		String comments = request.getParameter("comments");
+		
 		String tumorlocation = request.getParameter("tumorLocation");
 		double organmass = Double.parseDouble(request.getParameter("organMass"));
 		int cancerstage = Integer.parseInt(request.getParameter("cancerStage"));
@@ -36,7 +37,7 @@
 		double albumin = Double.parseDouble(request.getParameter("albumin"));
 
 		//Construct the PatientData object from the patient data
-		PatientData patient = new PatientData(firstName, lastName, ID, height, gender, age, weight, tumorlocation, organmass, cancerstage,
+		PatientData patient = new PatientData(firstName, lastName, ID, height, gender, age, weight, comments, tumorlocation, organmass, cancerstage,
 											  redblood, whiteblood, glucose, sodium, chloride, albumin);
 		
 		
@@ -57,8 +58,8 @@
 				<%
 					//Display username if logged in
 					if (session != null && session.getAttribute("name") != null) {
-						out.print("<li>| <a href='logout.jsp'>Log out</a></li>");
-						out.print("<li>| Welcome " + session.getAttribute("name") + "</li>");
+						out.print("<li><a href='logout.jsp'>Log out</a></li>");
+						out.print("<li>| " + session.getAttribute("name") + "</li>");
 					} else {
 						//If not logged in redirect to login page
 						response.sendRedirect("login.jsp");
@@ -106,17 +107,21 @@
 		<div class="white-blood">
 			<h4>White Blood Cell Count</h4>
 			<p><%out.print(patient.GetWhiteBloodCellCount()); %></p>
-			<p>Abnormally High</p>
+			<p style="color: red;">Abnormally High</p>
 		</div>
 		<div class="red-blood">
 			<h4>Red Blood Cell Count</h4>
 			<p><%out.print(patient.GetRedBloodCellCount()); %></p>
-			<p>Abnormally Low</p>
+			<p style="color: red;">Abnormally Low</p>
 		</div>
 		<div class="albumin">
 			<h4>Albumin Levels</h4>
 			<p><%out.print(patient.GetAlbumin()); %></p>
 			<p>Average</p>
+		</div>
+		<div class="comments">
+			<h4>Special Comments</h4>
+			<p><%out.print(patient.GetComments()); %></p>
 		</div>
 	</div>
 
@@ -153,7 +158,6 @@
 			<div class="therapy-weeks">
 				<h4>Total Therapy Weeks</h4>
 				<hr>
-				<h5>8 weeks</h5>
 				<h5><%out.print(patient.GetTotalTherapyWeeks()); %> weeks</h5>
 			</div>
 		</div>

@@ -7,13 +7,23 @@ import org.junit.jupiter.api.Test;
 import Core.PatientData;
 
 class SurgeryCalculatorTest {
-	PatientData Patient;
+	PatientData Patient = new PatientData();
 
 	@Test
 	void calculateTreatmentTest() {
+		//initial setup
+		Patient.SetCancerStage(1);
+		Patient.SetAge(35);
+		
+		//Run calculations
 		SurgeryCalculator sc = new SurgeryCalculator(Patient);
-		int cancerStage = sc.Patient.GetCancerStage();
-		String recSurg = sc.Patient.GetRecommendedSurgery();
+		sc.CalculateTreatment();
+		
+		//Get Results
+		int cancerStage = Patient.GetCancerStage();
+		String recSurg = Patient.GetRecommendedSurgery();
+		
+		//Test outputted surgery is as it should be
 		if(cancerStage == 1) {
 			assertEquals("Low Risk: Curative removal surgery \nlitle to no radiation needed.", recSurg);
 		} else if(cancerStage == 2) {
