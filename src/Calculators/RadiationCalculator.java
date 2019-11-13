@@ -49,6 +49,7 @@ public void CalculateTreatment() {
 			//high risk
 			absorbedDoseHigh = (sievertsHigh)/((5)*((2*riskFactorHeart)+riskFactorLungs));
 			totalDoseHigh = absorbedDoseHigh*Patient.GetOrganMass();
+			break;
 			
 		case "lungs":
 			//low risk
@@ -62,6 +63,7 @@ public void CalculateTreatment() {
 			//high risk
 			absorbedDoseHigh = (sievertsHigh)/((5)*((2*riskFactorLungs)+riskFactorHeart));
 			totalDoseHigh = absorbedDoseHigh*Patient.GetOrganMass();
+			break; 
 			
 		case "brain":
 			//low risk
@@ -75,6 +77,7 @@ public void CalculateTreatment() {
 			//high risk
 			absorbedDoseHigh = (sievertsHigh)/((5)*((2*riskFactorBrain)+riskFactorThyroid));
 			totalDoseHigh = absorbedDoseHigh*Patient.GetOrganMass();
+			break;
 			
 		case "thyroid":
 			//low risk
@@ -88,7 +91,7 @@ public void CalculateTreatment() {
 			//high risk
 			absorbedDoseHigh = (sievertsHigh)/((5)*((2*riskFactorThyroid)+riskFactorBrain));
 			totalDoseHigh = absorbedDoseHigh*Patient.GetOrganMass();
-
+			break;
 		/*
 		case "Kidneys":
 			//low risk
@@ -116,6 +119,7 @@ public void CalculateTreatment() {
 			//high risk
 			absorbedDoseHigh = (sievertsHigh)/((5)*((2*riskFactorLiver)+riskFactorStomach));
 			totalDoseHigh = absorbedDoseHigh*Patient.GetOrganMass();
+			break;
 			
 		case "stomach":
 			//low risk
@@ -129,7 +133,7 @@ public void CalculateTreatment() {
 			//high risk
 			absorbedDoseHigh = (sievertsHigh)/((5)*((2*riskFactorStomach)+riskFactorLiver));
 			totalDoseHigh = absorbedDoseHigh*Patient.GetOrganMass();
-			
+			break;
 	}
 
 	Patient.SetTotalDoseLowRisk(TwoDecimalRound(totalDoseLow));
