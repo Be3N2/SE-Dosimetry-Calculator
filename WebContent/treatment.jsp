@@ -38,7 +38,7 @@
 
 		//Construct the PatientData object from the patient data
 		PatientData patient = new PatientData(firstName, lastName, ID, height, gender, age, weight, comments, tumorlocation, organmass, cancerstage,
-											  redblood, whiteblood, glucose, sodium, chloride, albumin);
+											  whiteblood, redblood, glucose, sodium, chloride, albumin);
 		
 		
 		//Here is where we call the calculations:
@@ -107,17 +107,36 @@
 		<div class="white-blood">
 			<h4>White Blood Cell Count</h4>
 			<p><%out.print(patient.GetWhiteBloodCellCount()); %></p>
-			<p style="color: red;">Abnormally High</p>
+			<%
+				System.out.println("White blood?  " + patient.GetWhiteBloodCellCount());
+				if (patient.GetWhiteBloodCellCount() > 5.9) {
+					out.print("<p style='color: red;'>Abnormally High</p>");
+				} else if (patient.GetWhiteBloodCellCount() < 4.5) {
+					out.print("<p style='color: red;'>Abnormally Low</p>");
+				}
+			%>
 		</div>
 		<div class="red-blood">
 			<h4>Red Blood Cell Count</h4>
 			<p><%out.print(patient.GetRedBloodCellCount()); %></p>
-			<p style="color: red;">Abnormally Low</p>
+			<%
+				if (patient.GetRedBloodCellCount() > 10000) {
+					out.print("<p style='color: red;'>Abnormally High</p>");
+				} else if (patient.GetRedBloodCellCount() < 4500) {
+					out.print("<p style='color: red;'>Abnormally Low</p>");
+				}
+			%>
 		</div>
 		<div class="albumin">
 			<h4>Albumin Levels</h4>
 			<p><%out.print(patient.GetAlbumin()); %></p>
-			<p>Average</p>
+			<%
+				if (patient.GetAlbumin() > 50) {
+					out.print("<p style='color: red;'>Abnormally High</p>");
+				} else if (patient.GetAlbumin() < 30) {
+					out.print("<p style='color: red;'>Abnormally Low</p>");
+				}
+			%>
 		</div>
 		<div class="comments">
 			<h4>Special Comments</h4>

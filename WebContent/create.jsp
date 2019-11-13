@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="css/head.css">
 <link rel="stylesheet" href="css/style.css">
-
+<script src="validation.js"></script>
 </head>
 <body>
 	<header>	
@@ -34,54 +34,66 @@
 	</header>
 
 	<noscript>Javascript is disabled - It must be enabled to use this page.</noscript>
-	<form name="patientInfo" method="get" action="/Dosimetry_Calculator/treatment.jsp">
+	<form name="patientInfo" method="get" action="/Dosimetry_Calculator/treatment.jsp" onsubmit="return validate()">
 	<div class="grid-container">
 	<div class="anatomy">
 		<h4>Patient Anatomy</h4>
 
 		<div class="field"><label>First Name: </label>
-		<input type="text" name="firstName" placeholder="First Name"/> <br/></div>
+		<input type="text" name="firstName" placeholder="First Name" required/> <br/></div>
 		<div class="field"><label>Last Name: </label>
-		<input type="text" name="lastName" placeholder="Last Name"/> <br/></div>
+		<input type="text" name="lastName" placeholder="Last Name" required/> <br/></div>
 		<div class="field"><label>Patient ID: </label>
-		<input type="number" name="ID" placeholder="12345678"/> <br/></div>
+		<input type="number" name="ID" placeholder="12345678" required/> <br/></div>
 		<div class="field"><label>Height (inches): </label>
-		<input type="text" name="height" placeholder="70" /> <br/></div>
+		<input type="text" name="height" placeholder="70" required/> <br/></div>
 		<div class="field"><label>Gender: </label>
 		<select name="Gender">
 			<option value="M">Male</option>
 			<option value="F">Female</option>
 		</select><br/></div>
 		<div class="field"><label>Age: </label>
-		<input type="number" name="age" placeholder="35" /> <br/></div>
+		<input type="number" name="age" placeholder="35" required/> <br/></div>
 		<div class="field"><label>Weight: </label>
-		<input type="number" name="weight" placeholder="170" /> <br/></div>
+		<input type="number" name="weight" placeholder="170" required/> <br/></div>
 	</div>
 
 	<div class="cancer">
 		<h4>Cancer Details</h4>
 		<div class="field"><label>Tumor Location: </label>
-		<input type="text" name="tumorLocation" placeholder="location" /> <br/></div>
+		<select name="tumorLocation">
+			<!--<option value="heart">Heart</option>-->
+			<option value="brain">Brain</option>
+			<option value="liver">Liver</option>
+			<option value="stomach">Stomach</option>
+			<option value="lungs">Lungs</option>
+			<option value="thyroid">Thyroid</option>
+		</select> <br/></div>
 		<div class="field"><label>Organ Mass: </label>
-		<input type="text" name="organMass" placeholder="organ mass" /> <br/></div>
+		<input type="text" name="organMass" placeholder="organ mass" required/> <br/></div>
 		<div class="field"><label>Cancer Stage: </label>
-		<input type="text" name="cancerStage" placeholder="stage"/> <br/></div>
+		<select name="cancerStage">
+			<option value='1'>1</option>
+			<option value='2'>2</option>
+			<option value='3'>3</option>
+			<option value='4'>4</option>
+		</select> <br/></div>
 	</div>
 
 	<div class="blood">
 		<h4>Blood Levels</h4>
 		<div class="field"><label>Red Blood Count </label>
-		<input type="text" name="redBlood" placeholder="red count"/><br/></div>
+		<input type="text" name="redBlood" placeholder="million cells/mcL 4,500-10,000" required/><br/></div>
 		<div class="field"><label>White Blood Count </label>
-		<input type="text" name="whiteBlood" placeholder="white count"/><br/></div>
+		<input type="text" name="whiteBlood" placeholder="cells/mcL 4.5-5.9" required/><br/></div>
 		<div class="field"><label>Glucose, Serum: </label>
-		<input type="text" name="glucose" placeholder="mmol/L"/> <br/></div>
+		<input type="text" name="glucose" placeholder="mmol/L" required/> <br/></div>
 		<div class="field"><label>Sodium, Serum: </label>
-		<input type="text" name="sodium" placeholder="mmol/L"/> <br/></div>
+		<input type="text" name="sodium" placeholder="mmol/L" required/> <br/></div>
 		<div class="field"><label>Chloride, Serum: </label>
-		<input type="text" name="chloride" placeholder="mmol/L"/> <br/></div>
+		<input type="text" name="chloride" placeholder="mmol/L" required/> <br/></div>
 		<div class="field"><label>Albumin, Serum: </label>
-		<input type="text" name="albumin" placeholder="mmol/L"/> <br/></div>
+		<input type="text" name="albumin" placeholder="mmol/L" required/> <br/></div>
 	</div>
 
 	<div class="other">

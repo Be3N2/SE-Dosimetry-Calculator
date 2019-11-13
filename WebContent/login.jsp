@@ -13,9 +13,14 @@
 		<h4>Log in </h4>
 		<div class="field">
 		<%
-			String str[] = request.getHeader("referer").split("/");
-			if (str[4].compareTo("login.jsp") == 0) {
-				out.print("<h5 style='color: red; margin: 0px;'>Bad username or password</h5>");
+		    String[] strAr = {};
+			if (request.getHeader("referer") != null) {
+				strAr = request.getHeader("referer").split("/");
+			}
+			if (strAr.length >= 5) {
+				if (strAr[4].compareTo("login.jsp") == 0) {
+					out.print("<h5 style='color: red; margin: 0px;'>Bad username or password</h5>");
+				}		
 			}
 		%><label>Username: </label>
 		<input type="text" name="username" placeholder="Username"/> <br/></div>
