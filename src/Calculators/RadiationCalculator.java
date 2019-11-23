@@ -1,4 +1,5 @@
 package Calculators;
+
 import Core.PatientData;
 
 public class RadiationCalculator extends Calculator {
@@ -187,5 +188,6 @@ public void ChooseRecommendedRiskLevel() {
 		Patient.SetRecommendedRiskLevel("High");
 	}
 }
+
 
 }

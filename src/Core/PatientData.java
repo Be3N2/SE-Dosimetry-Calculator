@@ -1,5 +1,12 @@
 package Core;
 
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+
+
 public class PatientData {
 
 	//Patient attributes
@@ -294,4 +301,46 @@ public class PatientData {
 		System.out.println("Recommended Risk level: " + this.GetRecommendedRiskLevel());
 	}
 	
+	public void AddToDatabase() {
+		//mongodb connection
+		String mongoUri = "mongodb+srv://admin:admin2019ysu@cluster0-lliro.mongodb.net/test?retryWrites=true&w=majority";
+		//MongoClientURI uri = new MongoClientURI(mongoUri);
+
+		MongoClient mongoClient = MongoClients.create(mongoUri);
+		MongoDatabase database = mongoClient.getDatabase("Dosimetry");
+		//
+		
+		MongoCollection<Document> patients = database.getCollection("Patients");
+		
+		//build the patient document (record) to be inserted into the collection
+		Document patientDatabaseObject = new Document()
+							.append("Firstname", this.GetFirstName())
+							.append("Lastname",this.GetLastName())
+							.append("id", this.GetID())
+							.append("Height", this.GetHeight())
+							.append("Gender", this.GetGender())
+							.append("Age", this.GetAge())
+							.append("Weight", this.GetWeight())
+							.append("Comments", this.GetComments())
+							.append("TumorLocation", this.GetTumorLocation())
+							.append("OrganMass", this.GetOrganMass())
+							.append("CancerStage", this.GetCancerStage())
+							.append("Redblood", this.GetRedBloodCellCount())
+							.append("Whiteblood", this.GetWhiteBloodCellCount())
+							.append("Glucose", this.GetGlucose())
+							.append("Sodium", this.GetSodium())
+							.append("Chloride", this.GetChloride())
+							.append("Albumin", this.GetAlbumin())
+							.append("TotalDoseLowRisk", this.GetTotalDoseLowRisk())
+							.append("TotalDoseMedRisk", this.GetTotalDoseMedRisk())
+							.append("TotalDoseHighRisk", this.GetTotalDoseHighRisk())
+							.append("TotalTherapyWeeks", this.GetTotalTherapyWeeks())
+							.append("RecommendedRiskLevel", this.GetRecommendedRiskLevel())
+							.append("RecommendedSurgery", this.GetRecommendedSurgery())
+							.append("RecommendedChemotherapy", this.GetChemoDrug());
+		
+		patients.insertOne(patientDatabaseObject);
+		
+		mongoClient.close();
+	}
 }

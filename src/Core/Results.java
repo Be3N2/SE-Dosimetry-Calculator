@@ -33,7 +33,7 @@ public class Results extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		PrintWriter writer = response.getWriter();
 		
 		//Get Input patient data From Header
@@ -62,10 +62,10 @@ public class Results extends HttpServlet {
 											  redblood, whiteblood, glucose, sodium, chloride, albumin);
 		
 		
+		
 		//Here is where we call the calculations:
 		RadiationCalculator RadCalculator = new RadiationCalculator(patient);
 		RadCalculator.CalculateTreatment();
-		patient.Print();
 
 		//print radiation to screen as output
 		

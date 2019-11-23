@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="Core.*" %>
 <%@ page import="Calculators.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 </head>
 <body>
 
-<%	
+<%
 		//Get Input patient data From Header
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
@@ -40,7 +41,6 @@
 		PatientData patient = new PatientData(firstName, lastName, ID, height, gender, age, weight, comments, tumorlocation, organmass, cancerstage,
 											  whiteblood, redblood, glucose, sodium, chloride, albumin);
 		
-		
 		//Here is where we call the calculations:
 		RadiationCalculator RadCalculator = new RadiationCalculator(patient);
 		RadCalculator.CalculateTreatment();
@@ -49,7 +49,9 @@
 		ChemotherapyCalculator ChemoCalculator = new ChemotherapyCalculator(patient);
 		ChemoCalculator.CalculateTreatment();
 		
-		patient.Print();
+		//add to database
+		patient.AddToDatabase();
+
 %>
 <header>	
 	<div class="navBar">
