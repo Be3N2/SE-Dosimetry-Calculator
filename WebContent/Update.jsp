@@ -6,11 +6,12 @@
 <title>Dosimetry Calculator</title>
 
 <link rel="stylesheet" href="css/head.css">
+<link rel="stylesheet" href="css/lookup.css">
 </head>
 <body>
 	<header>	
 		<div class="navBar">
-			<h3 class="header">Dosimetry Calculator Project</h3>
+			<h3 class="header">Update A Patient</h3>
 			
 			<ul class="navigation">
 				<%
@@ -30,5 +31,13 @@
 		</div>
 	</header>
 	
+	<form class="lookupForm" method="post" action="/Dosimetry_Calculator/LookupUpdate">
+		<div class="field"><label>Patient ID: </label>
+		<input type="text" name="ID" placeholder="123456" required/> <br/></div>
+		
+		<div class="submit">
+			<button type="submit">Submit</button>
+		</div>
+	</form>
 </body>
 </html>

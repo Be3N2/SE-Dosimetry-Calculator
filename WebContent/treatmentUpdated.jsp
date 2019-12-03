@@ -50,8 +50,8 @@
 		ChemotherapyCalculator ChemoCalculator = new ChemotherapyCalculator(patient);
 		ChemoCalculator.CalculateTreatment();
 		
-		//add to database
-		patient.AddToDatabase();
+		//Update database record
+		patient.updateDatabase();
 
 %>
 <header>	

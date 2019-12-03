@@ -27,8 +27,8 @@
 					}
 				%>
 				<li>Create</li>
-				<li>Update</li>
-				<li>View</a></li>
+				<li><a href="Update.jsp">Update</a></li>
+				<li><a href="View.jsp">View</a></li>
 			</ul>
 		</div>
 	</header>
